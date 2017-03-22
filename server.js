@@ -4,8 +4,13 @@ const app = express();
 const api = express.Router();
 const port = process.env.PORT || 3750;
 
-api.route('/').get(headerHandler);
+const SOFTWARE_PATTERN = /\(.*;[^\/]*\)/;
+
+api.route('/whoami')
+   .get(headerHandler);
+
 app.use('/api', api);
+
 app.listen(port);
 console.log('Listening on ' + port);
 
@@ -13,9 +18,10 @@ exports = module.exports = app;
 
 function headerHandler(req, res) {
   const headers = req.headers;
+  const agent = headers['user-agent'].match(SOFTWARE_PATTERN)[0];
   res.json({
     ipaddress: req.ip,
     language: headers['accept-language'],
-    software: headers['user-agent']
+    software: agent
   });
 }
