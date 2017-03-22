@@ -20,7 +20,7 @@ function headerHandler(req, res) {
   const headers = req.headers;
   const agent = headers['user-agent'].match(SOFTWARE_PATTERN)[0];
   res.json({
-    ipaddress: req.ip,
+    ipaddress: req.headers['x-forwarded-for'] || req.connection.remoteAddress; // req.ip,
     language: headers['accept-language'],
     software: agent
   });
