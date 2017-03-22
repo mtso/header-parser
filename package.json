@@ -1,0 +1,22 @@
+{
+  "name": "header-parser",
+  "version": "1.0.0",
+  "description": "HTTP request header parser microservice.",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtso/header-parser.git"
+  },
+  "author": "mtso <mtso@tuta.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtso/header-parser/issues"
+  },
+  "homepage": "https://github.com/mtso/header-parser#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
